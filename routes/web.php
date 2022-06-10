@@ -40,3 +40,9 @@ Route::get('/livro/criar', [LivroController::class, 'criar'])->name('livro.criar
 Route::post('/livro/criar', [LivroController::class, 'inserir']);
 
 Route::get('/livro/ver/{book}', [LivroController::class, 'ver'])->name('livro.ver');
+
+// =========================== ALTERAÇÕES DA AULA DO DIA 09/06/2022 =====================================
+
+Route::get('/livro/editar/{book}', [LivroController::class, 'editar'])->name('livro.editar');
+
+Route::put('/livro/editar/{book}', [LivroController::class, 'editarGravar']);

@@ -34,4 +34,22 @@ class LivroController extends Controller
 
         return redirect()->route('livro');
     }
+
+    public function editar(Livro $book) {
+        return view('livros/editar', ['book' => $book]);
+    }
+
+    public function editarGravar(Request $form, Livro $book){
+        $dados = $form -> validate([
+            'titulo' => 'required|max:255',
+            'autor' => 'required',
+            'editora' => 'required',
+            'edicao' => 'required'
+        ]);
+
+        $book->fill($dados);
+        $book->save();
+
+        return redirect()->route('livro');
+    }
 }

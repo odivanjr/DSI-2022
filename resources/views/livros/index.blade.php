@@ -35,6 +35,11 @@
                 <td>
                     {{$book->edicao}}
                 </td>
+
+                <td>
+                    <a href="{{route('livro.editar',$book->id)}}">Editar</a>
+                </td>
+
             </tr>
         @endforeach
     </table>    
