@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LivroController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\UsuariosController;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
@@ -46,3 +47,11 @@ Route::get('/livro/ver/{book}', [LivroController::class, 'ver'])->name('livro.ve
 Route::get('/livro/editar/{book}', [LivroController::class, 'editar'])->name('livro.editar');
 
 Route::put('/livro/editar/{book}', [LivroController::class, 'editarGravar']);
+
+// =========================== ALTERAÇÕES DA AULA DO DIA 23/06/2022 =====================================
+
+Route::get('/login', [UsuariosController::class,'index'])->name('usuario.index');
+
+Route::post('/login', [UsuariosController::class, 'login'])->name('usuario.login');
+
+Route::get('/logout', [UsuariosController::class, 'logout'])->name('usuario.logout');
