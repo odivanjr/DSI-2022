@@ -53,6 +53,13 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
+        'imagens' => [
+            'driver' => 'local',
+            'root' => storage_path('imagens'),
+            'url' => env('app_url').'./img',
+            'visibility' => 'public',
+        ],
+
     ],
 
     /*
@@ -68,6 +75,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('img') => storage_path('imagens')
     ],
 
 ];

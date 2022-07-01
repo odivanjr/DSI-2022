@@ -12,6 +12,7 @@ class Livro extends Model
         'titulo',
         'editora',
         'edicao',
-        'autor'
+        'autor',
+        'img'
     ];
 }

@@ -25,6 +25,7 @@
         <p><input value="{{old('autor') ?: $book->autor}}" type="text" name="autor" placeholder="Autor"></p>
         <p><input value="{{old('editora') ?: $book->editora}}" type="text" name="editora" placeholder="Editora"></p>
         <p><input value="{{old('edicao') ?: $book->edicao}}" type="number" name="edicao" placeholder="Edição"></p>
+        {{-- <p>Foto: <input type="file" name="imagem"></p> --}}
         
         <p><input type="submit" value="Salvar"></p>
 

@@ -14,6 +14,7 @@
             <th>Autor</th>
             <th>Editora</th>
             <th>Edição</th>
+            <th>Exclusão</th>
         </tr>
 
         @foreach($books as $book)
@@ -38,6 +39,10 @@
 
                 <td>
                     <a href="{{route('livro.editar',$book->id)}}">Editar</a>
+                </td>
+
+                <td>
+                    <a href="{{route('livro.apagar',$book->id)}}" class="excluir">Excluir</a>
                 </td>
 
             </tr>

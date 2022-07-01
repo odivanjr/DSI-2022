@@ -27,8 +27,12 @@ class LivroController extends Controller
             'titulo' => 'required',
             'autor' => 'required',
             'editora' => 'required',
-            'edicao' => 'required'
+            'edicao' => 'required',
+            'imagem' => 'required'
         ]);
+
+        $imgCaminho = $form -> file('imagem') -> store('', 'imagens');
+        $dados['img'] = $imgCaminho;
 
         Livro::create($dados);
 
@@ -51,5 +55,11 @@ class LivroController extends Controller
         $book->save();
 
         return redirect()->route('livro');
+    }
+
+    // ALTERAÇÃO DA AULA DO DIA 30/06/2022
+
+    public function apagar(Livro $book){
+        
     }
 }

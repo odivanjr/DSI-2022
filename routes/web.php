@@ -55,3 +55,7 @@ Route::get('/login', [UsuariosController::class,'index'])->name('usuario.index')
 Route::post('/login', [UsuariosController::class, 'login'])->name('usuario.login');
 
 Route::get('/logout', [UsuariosController::class, 'logout'])->name('usuario.logout');
+
+// =========================== ALTERAÇÕES DA AULA DO DIA 30/06/2022 =====================================
+
+Route::delete('/livro/apagar/{book}', [LivroController::class, 'apagar'])->name('livro.apagar');

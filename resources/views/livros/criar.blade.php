@@ -16,7 +16,7 @@
         </ul>
     @endif
 
-    <form action="{{route('livro.criar')}}" method="post">
+    <form action="{{route('livro.criar')}}" method="post" enctype="multipart/form-data">
     
         @csrf
 
@@ -24,6 +24,7 @@
         <p><input value="{{old('autor')}}" type="text" name="autor" placeholder="Autor"></p>
         <p><input value="{{old('editora')}}" type="text" name="editora" placeholder="Editora"></p>
         <p><input value="{{old('edicao')}}" type="number" name="edicao" placeholder="Edição"></p>
+        <p>Foto: <input type="file" name="imagem"></p>
         
         <p><input type="submit" value="Salvar"></p>
 
