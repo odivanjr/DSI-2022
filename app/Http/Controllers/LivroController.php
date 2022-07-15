@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Area;
 use Illuminate\Http\Request;
 use App\Models\Livro;
 
 class LivroController extends Controller
 {
     public function index(){
-        $book = Livro::all();
+        $book = Livro::with('area')->get();
         return view('livros/index',['books'=>$book]);
     }
 
     public function criar(){
-        return view('livros/criar');
+        $areas = Area::all();        
+        return view('livros/criar', ['areas_nome'=>$areas]);
     }
 
     public function ver(Livro $book){
@@ -28,6 +30,7 @@ class LivroController extends Controller
             'autor' => 'required',
             'editora' => 'required',
             'edicao' => 'required',
+            'area_id' => 'required',
             'imagem' => 'required'
         ]);
 
@@ -35,7 +38,6 @@ class LivroController extends Controller
         $dados['img'] = $imgCaminho;
 
         Livro::create($dados);
-
         return redirect()->route('livro');
     }
 
@@ -48,6 +50,7 @@ class LivroController extends Controller
             'titulo' => 'required|max:255',
             'autor' => 'required',
             'editora' => 'required',
+            'area' => 'required',
             'edicao' => 'required'
         ]);
 

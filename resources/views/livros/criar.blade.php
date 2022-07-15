@@ -24,6 +24,15 @@
         <p><input value="{{old('autor')}}" type="text" name="autor" placeholder="Autor"></p>
         <p><input value="{{old('editora')}}" type="text" name="editora" placeholder="Editora"></p>
         <p><input value="{{old('edicao')}}" type="number" name="edicao" placeholder="Edição"></p>
+        
+        <p>
+            <select name="area_id" >
+                @foreach($areas_nome as $area)
+                    <option value="{{$area->id}}">{{$area->nome}}</option>
+                @endforeach
+            </select>
+        </p>
+
         <p>Foto: <input type="file" name="imagem"></p>
         
         <p><input type="submit" value="Salvar"></p>
