@@ -36,7 +36,7 @@ Route::get('/produto/ver/{prod}', [ProdutoController::class, 'ver'])->name('prod
 
 // ==================================== BIBLIOTECA ================================================
 
-Route::get('/livro', [LivroController::class, 'index'])->name('livro');
+Route::get('/', [LivroController::class, 'index'])->name('livro');
 
 Route::get('/livro/criar', [LivroController::class, 'criar'])->name('livro.criar');
 
@@ -63,7 +63,7 @@ Route::get('/logout', [UsuariosController::class, 'logout'])->name('usuario.logo
 
 // =========================== ALTERAÇÕES DA AULA DO DIA 30/06/2022 =================================
 
-Route::delete('/livro/apagar/{book}', [LivroController::class, 'apagar'])->name('livro.apagar');
+Route::get('/livro/apagar/{book}', [LivroController::class, 'apagar'])->name('livro.apagar');
 
 
 // =========================== ALTERAÇÕES PARA APRESENTAÇÃO FINAL ===================================
@@ -78,4 +78,8 @@ Route::get('/area/editar/{area}', [AreaController::class, 'editar'])->name('area
 
 Route::put('/area/editar/{area}', [AreaController::class, 'editarGravar']);
 
-Route::delete('/area/apagar/{area}', [AreaController::class, 'apagar'])->name('area.apagar');
+Route::get('/area/apagar/{area}', [AreaController::class, 'apagar'])->name('area.apagar');
+
+// ======================= ALTERAÇÕES - APRESENTAÇÃO FINAL - 25/07/2022 ==============================
+
+Route::get('/livro/apresentar', [LivroController::class, 'apresentar'])->name('livro.apresentar');

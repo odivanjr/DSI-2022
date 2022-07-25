@@ -8,9 +8,15 @@ use App\Models\Livro;
 
 class LivroController extends Controller
 {
-    public function index(){
+    public function apresentar(){
         $book = Livro::with('area')->get();
-        return view('livros/index',['books'=>$book]);
+        return view('livros/apresentar',['books'=>$book]);
+    }
+
+    public function index(){
+        $qtd=Livro::all()->count();
+        $areas=Area::with('livros')->get();
+        return view('livros/index',['qtd'=>$qtd,'areas'=>$areas]);
     }
 
     public function criar(){
@@ -38,7 +44,7 @@ class LivroController extends Controller
         $dados['img'] = $imgCaminho;
 
         Livro::create($dados);
-        return redirect()->route('livro');
+        return redirect()->route('livro.apresentar');
     }
 
     public function editar(Livro $book) {
@@ -57,12 +63,13 @@ class LivroController extends Controller
         $book->fill($dados);
         $book->save();
 
-        return redirect()->route('livro');
+        return redirect()->route('livro.apresentar');
     }
 
     // ALTERAÇÃO DA AULA DO DIA 30/06/2022
 
     public function apagar(Livro $book){
-        
+        $book->delete();
+        return redirect()->route('livro.apresentar');
     }
 }

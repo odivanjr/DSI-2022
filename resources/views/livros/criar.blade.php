@@ -26,7 +26,7 @@
         <p><input value="{{old('edicao')}}" type="number" name="edicao" placeholder="Edição"></p>
         
         <p>
-            <select name="area_id" >
+            <select name="area_id">
                 @foreach($areas_nome as $area)
                     <option value="{{$area->id}}">{{$area->nome}}</option>
                 @endforeach

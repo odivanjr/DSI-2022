@@ -10,11 +10,21 @@
 
     <h2>{{$livros -> titulo}}</h2>
 
-    {{-- uma forma de apresentação dos dados na tela (acesso de propriedade de objeto) --}}
+    </br>
 
-    <p><strong>Autor: </strong>{{$livros -> autor}}</p>
-    <p><strong>Editora: </strong>{{$livros -> editora}}</p>
-    <p><strong>Edição: </strong>{{$livros -> edicao}}</p>
-    <p><img width="30%" src="{{asset('/img/'. $livros -> img)}}"></p>
+    <div class="row">
+        <div class="col-2">
+            <p><img src="{{asset('/img/'.$livros -> img)}}" class="img-fluid"></p>            
+        </div>
+        <div class="col">
+            <p><strong>Autor: </strong>{{$livros -> autor}}</p>
+            <p><strong>Editora: </strong>{{$livros -> editora}}</p>
+            <p><strong>Edição: </strong>{{$livros -> edicao}}</p>
+        </div>
+    </div>
+        
+    
+    </br></br>
+    <a href="{{route('livro.apresentar')}}" class="btn btn-primary">Voltar</a>
 
 @endsection

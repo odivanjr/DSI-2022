@@ -10,5 +10,9 @@ class Area extends Model
     use HasFactory;
     protected $fillable = [
         'nome'
-    ];   
+    ];
+
+    public function livros(){
+        return $this -> hasMany(Livro::class);
+    }
 }

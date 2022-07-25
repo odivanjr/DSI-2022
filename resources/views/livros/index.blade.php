@@ -4,59 +4,24 @@
 
 @section('corpo')
 
-    <h1>Livros - Listagem</h1>
+    <h1>SisBib</h1>
+
+    </br>
+
+    <h3>Gerenciamento de Livros da Biblioteca</h3>
+
+    <p>Sistema de Gerenciamento dos livros da biblioteca. Escolha uma das opções abaixo
+    para cadastrar livros ou áras do conhecimento.</p>
 
     </br> </br>
 
-    <p><a href="{{route('livro.criar')}}">Cadastrar Livro</a></p>
+    <p>Total de livros cadastrados: {{$qtd}}</p>
+    @foreach($areas as $area)
+        <p>{{$area->nome}}: {{count($area->livros)}}</p>
+    @endforeach
 
-    <p><a href="{{route('area')}}">Cadastrar Área</a></p>
+    <a href="{{route('livro.apresentar')}}" class="btn btn-primary">Cadastrar Livro</a>
 
-    <table border="1">
-        <tr>
-            <th width="25%">Título</th>
-            <th width="15%">Autor</th>
-            <th width="10%">Editora</th>
-            <th width="5%">Edição</th>
-            <th width="10%">Área</th>
-            <th width="8%">Editar Livro</th>
-            <th width="8%">Excluir Livro</th>
-        </tr>
-
-        @foreach($books as $book)
-            <tr>
-                <td width="25%">
-                    <a href="{{route('livro.ver',$book->id)}}">
-                        {{$book->titulo}}
-                    </a>                    
-                </td>
-
-                <td width="15%">
-                    {{$book->autor}}
-                </td>
-
-                <td width="10%">
-                    {{$book->editora}}
-                </td>
-
-                <td width="5%">
-                    {{$book->edicao}}
-                </td>
-
-                <td width="10%" >
-                    {{$book->area->nome}}
-                </td>
-
-                <td width="8%">
-                    <a href="{{route('livro.editar',$book->id)}}">Editar</a>
-                </td>
-
-                <td width="8%">
-                    <a href="{{route('livro.apagar',$book->id)}}" class="excluir">Excluir</a>
-                </td>
-
-            </tr>
-        @endforeach
-    </table>    
+    <a href="{{route('area')}}" class="btn btn-primary">Cadastrar Área</a>    
 
 @endsection

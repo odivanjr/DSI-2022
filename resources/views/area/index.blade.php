@@ -6,9 +6,9 @@
 
     <h1>Áreas do Conhecimento - Listagem</h1>
 
-    <p><a href="{{route('area.criar')}}">Cadastrar Área</a></p>
+    <p><a href="{{route('area.criar')}}" class="btn btn-primary">Cadastrar Área</a></p>
 
-    <table border="1">
+    <table border="1", class="table table-striped table-hover">
         <tr>
             <th width="25%">Nome</th>
             <th width="8%">Editar</th>
