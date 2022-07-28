@@ -20,7 +20,7 @@ class LivroController extends Controller
     }
 
     public function criar(){
-        $areas = Area::all();        
+        $areas = Area::all();
         return view('livros/criar', ['areas_nome'=>$areas]);
     }
 
@@ -48,7 +48,8 @@ class LivroController extends Controller
     }
 
     public function editar(Livro $book) {
-        return view('livros/editar', ['book' => $book]);
+        $areas = Area::all();
+        return view('livros/editar', ['book' => $book, 'areas_nome'=>$areas]);
     }
 
     public function editarGravar(Request $form, Livro $book){
@@ -56,13 +57,17 @@ class LivroController extends Controller
             'titulo' => 'required|max:255',
             'autor' => 'required',
             'editora' => 'required',
-            'area' => 'required',
+            'area_id' => 'required',
             'edicao' => 'required'
         ]);
+        
+        if ($form->imagem){
+            $imgCaminho = $form -> file('imagem') -> store('', 'imagens');
+            $dados['img'] = $imgCaminho;
+        }
 
         $book->fill($dados);
         $book->save();
-
         return redirect()->route('livro.apresentar');
     }
 

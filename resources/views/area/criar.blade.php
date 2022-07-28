@@ -6,6 +6,8 @@
 
     <h1>Áreas do Conhecimento - Criar</h1>
 
+    <br><br>
+
     @if($errors->any())
         <p>Preencha o campo vazio.</p>
 

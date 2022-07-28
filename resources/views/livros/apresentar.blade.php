@@ -6,13 +6,13 @@
 
     <h1>Livros - Listagem</h1>
 
-    </br> </br>
+    <br><br>
 
     <a href="{{route('livro.criar')}}" class="btn btn-primary">Cadastrar Livro</a>
 
-    <a href="{{route('area')}}" class="btn btn-primary">Cadastrar Área</a>
+    <a href="{{route('area.criar')}}" class="btn btn-primary">Cadastrar Área</a>
 
-    </br> </br>
+    <br><br>
 
     <table id="livros">
         <thead>
@@ -66,7 +66,7 @@
 
         <tfoot>
             <tr>
-                <th >Título</th>
+                <th>Título</th>
                 <th>Autor</th>
                 <th>Editora</th>
                 <th>Edição</th>

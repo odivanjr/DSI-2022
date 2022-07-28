@@ -28,7 +28,7 @@
         <p>
             <select name="area_id">
                 @foreach($areas_nome as $area)
-                    <option value="{{$area->id}}">{{$area->nome}}</option>
+                    <option value="{{$area->id}}" placeholder="Área do Conhecimento">{{$area->nome}}</option>
                 @endforeach
             </select>
         </p>
